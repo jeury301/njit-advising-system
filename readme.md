@@ -12,7 +12,7 @@ CS370 Intro to AI Final Project - An smart system that allows students to get ad
 *	Python Libraries:
 	* 	BeautifulSoup, used to scrape and parse some of NJIT websites to build up the database of majors and to perform the "Smart" advising.
 
-# The System:
+# The System
 
 The system is basically a database of all the courses of each major at NJIT, that acts as an expert system using historical data of the student (course & semester-wise), to provide a best estitame of the courses that needs to be taken next. The core of the system, is using the scraped data from NJIT's website and building a interal map(tree) of majors, semesters and courses.
 

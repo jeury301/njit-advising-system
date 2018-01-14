@@ -12,13 +12,10 @@ from ferris.core import routing
 def domain_chain(controller):
     
     #Make sure the active user's email account falls within the accepted domains.
-    
-
     if controller.route.prefix == 'cron':
         return True
     
     else:
-        
         return True
     
 # example
