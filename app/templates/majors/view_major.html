@@ -1,0 +1,100 @@
+<!--
+Name: Jeury Mejia
+Class: CS370
+Date: 13/12/216
+Template: majors/view_major.html
+-->
+
+
+{% import "scaffolding/macros.html" as scaffold with context %}
+{% extends "layouts/default.html" %}
+{% block layout_content %}
+
+<h1 class="nypl_app_title">NJIT Advising System</h1>
+<h2><small><a href="/majors/list"><span class="glyphicon glyphicon-menu-left" style="font-size: 80%"></span></a> </small><strong>{{discipline}}</strong></h2>
+
+<div class="table-responsive">
+  <table id="Target" class="table table-bordered" >
+   <tr>
+    <th>Code</th>
+    <th>Title</th>
+    <th>Credits</th>
+  </tr>
+  <tr ><td colspan="3"><h3>First Year</h3></td></tr>
+  <tr>
+  <td colspan="3"><h4><strong>First Semester</strong></h4></td></tr>
+  {%for class in major_description['first_year']['first_semester'] %}
+  <tr>
+    <td>{{class.code}}</td>
+    <td >{{class.title}}</td>
+    <td>{{class.credits}}</td>
+  </tr>
+  {%endfor%}
+<tr>
+  <td colspan="3"><h4><strong>Second Semester</strong></h4></td></tr>  
+  {%for class in major_description['first_year']['second_semester'] %}
+  <tr>
+    <td>{{class.code}}</td>
+    <td >{{class.title}}</td>
+    <td>{{class.credits}}</td>
+  </tr>
+  {%endfor%}
+<tr><td colspan="3"><h3>Second Year</h3></td></tr>
+<tr>
+  <td colspan="3"><h4><strong>First Semester</strong></h4></td></tr> 
+  {%for class in major_description['second_year']['first_semester'] %}
+    <tr>
+      <td>{{class.code}}</td>
+      <td >{{class.title}}</td>
+      <td>{{class.credits}}</td>
+    </tr>
+    {%endfor%}
+    <tr>
+    <td colspan="3"><h4><strong>Second Semester</strong></h4></td></tr>  
+    {%for class in major_description['second_year']['second_semester'] %}
+    <tr>
+      <td>{{class.code}}</td>
+      <td >{{class.title}}</td>
+      <td>{{class.credits}}</td>
+    </tr>
+    {%endfor%}
+    <tr><td colspan="3"><h3>Third Year</h3></td></tr>
+    <tr><td colspan="3"><h4><strong>First Semester</strong></h4></td></tr>  
+  {%for class in major_description['third_year']['first_semester'] %}
+  <tr>
+    <td>{{class.code}}</td>
+    <td >{{class.title}}</td>
+    <td>{{class.credits}}</td>
+  </tr>
+  {%endfor%}
+  <tr><td colspan="3"><h4><strong>Second Semester</strong></h4></td></tr>  
+  {%for class in major_description['third_year']['second_semester'] %}
+  <tr>
+    <td>{{class.code}}</td>
+    <td >{{class.title}}</td>
+    <td>{{class.credits}}</td>
+  </tr>
+  {%endfor%}
+  <tr><td colspan="3"><h3>Fourth Year</h3></td></tr>
+  <tr>
+  <td colspan="3"><h4><strong>First Semester</strong></h4></td></tr>  
+  {%for class in major_description['fourth_year']['first_semester'] %}
+  <tr>
+    <td>{{class.code}}</td>
+    <td >{{class.title}}</td>
+    <td>{{class.credits}}</td>
+  </tr>
+  {%endfor%}
+  <tr>
+  <td colspan="3"><h4><strong>Second Semester</strong></h4></td></tr>  
+  {%for class in major_description['fourth_year']['second_semester'] %}
+  <tr>
+    <td>{{class.code}}</td>
+    <td >{{class.title}}</td>
+    <td>{{class.credits}}</td>
+  </tr>
+  {%endfor%}
+</table>
+</div>
+
+{% endblock %}

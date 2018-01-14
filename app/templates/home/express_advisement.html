@@ -1,0 +1,148 @@
+<!--
+Name: Jeury Mejia
+Class: CS370
+Date: 13/12/216
+Template: home/express_advisement.html
+-->
+
+{% import "scaffolding/macros.html" as scaffold with context %}
+{% extends "layouts/default.html" %}
+{% block layout_content %}
+
+<h1 class="nypl_app_title">NJIT Advising System</h1>
+
+<!--BEGIN: Render error messages-->
+{% if error_messages %}
+<div class="alert alert-warning">
+  <a href="#" class="close" data-dismiss="alert">&times;</a>
+  <ul>
+    {% for message_item in error_messages%}
+    <li>{{message_item}}</li>
+    {% endfor %}
+  </ul>
+
+</div>
+{% endif %} 
+<!--END: Render error messages-->
+
+<div class="row">
+  <div class="col-md-8 col-xs-6">
+    <h2><small><a href="javascript:goBack()"><span class="glyphicon glyphicon-menu-left" style="font-size: 80%"></span></a> </small><strong> Express Advisement</strong></h2>
+    {%if first%}
+    <form id="express_advise" action="/home/express_advisement/0" method="post">
+      <div class="form-group">
+        <label for="major">Major: *</label>
+        <input type="text" name="major" class="form-control" id="major" placeholder="Enter major" value="{%if container%}{{container.major}}{%endif%}">
+      </div>
+
+      <div class="form-group">
+        <label for="current_standing">Current Standing: *</label>
+        <select id="current_standing" name="current_standing" class="selectpicker form-control" data-style="btn-primary">
+          <option {%if container%}{%if container.standing=="Lower Freshman"%}selected{%endif%}{%endif%}>Lower Freshman</option>
+          <option {%if container%}{%if container.standing=="Upper Freshman"%}selected{%endif%}{%endif%}>Upper Freshman</option>
+          <option {%if container%}{%if container.standing=="Lower Sophomore"%}selected{%endif%}{%endif%}>Lower Sophomore</option>
+          <option {%if container%}{%if container.standing=="Upper Sophomore"%}selected{%endif%}{%endif%}>Upper Sophomore</option>
+          <option {%if container%}{%if container.standing=="Lower Junior"%}selected{%endif%}{%endif%}>Lower Junior</option>
+          <option {%if container%}{%if container.standing=="Upper Junior"%}selected{%endif%}{%endif%}>Upper Junior</option>
+          <option {%if container%}{%if container.standing=="Lower Senior"%}selected{%endif%}{%endif%}>Lower Senior</option>
+          <option {%if container%}{%if container.standing=="Upper Senior"%}selected{%endif%}{%endif%}>Upper Senior</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="current_standing">Preferred Number of Credits: </label>
+        <input type="number" name="credits" id="current_standing" min="3" max="21" step="1" value="{%if container%}{{credits}}{%endif%}"/>
+      </div>
+      <button type="submit" class="btn btn-success">Next</button>
+    </form>
+    {%endif%}
+    {%if second%}
+    {%if advising%}
+    <h3>Here's what I advise you to take for the <strong>{{advising_message[1]}}</strong> of your <strong>{{advising_message[0]}}</strong> of classes: </h3>
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+           <tr>
+            <th>Class Code</th>
+            <th>Class Title</th>
+            <th>Class Credits</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for course in courses %}
+          <tr>
+            <td>{{course.code}}</td>
+            <td >{{course.title}}</td>
+            <td>{{course.credits}}</td>
+          </tr>
+          {%endfor%}
+          <tr>
+            <td><strong>Total Credits: </strong></td>
+            <td></td>
+            <td><strong>{{total_credits}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer">You have been advised!</div>
+  </div>
+  {%else%}
+  <div class="panel panel-success">
+    <div class="panel-body">
+     <form id="sugeestions" action="/home/express_advisement/2" method="post">
+      {%for course in suggested_courses%}
+      <div class="form-group">
+       <label for="{{course.code}}">Have you taken {{course.code}} - {{course.title}} - {{course.credits}} credits? </label>
+       <br>
+       <label class="custom-control custom-radio">
+        <input id="{{course.code}}" name="{{course.title}}" type="radio" value="yes" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Yes</span>
+      </label>
+      <label class="custom-control custom-radio">
+        <input id="{{course.code}}_no" name="{{course.title}}" type="radio" value="no" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">No</span>
+      </label>
+    </div>
+    {%endfor%}
+    <button type="submit" class="btn btn-success">Finish</button>
+  </form>
+</div>
+<div class="panel-footer">First Suggestions.</div>
+</div>
+{%endif%}
+
+{%endif%}
+</div>
+<div class="col-xs-6 col-md-4">
+  <a href="" class="thumbnail">
+    <img src="/static/img/njit-smart.jpg" alt="NJIT Smart">
+  </a>
+</div>
+</div>
+<script type="text/javascript">
+  function goBack() {
+
+    var value = {{value}};
+
+    if (value == 2 || value == 1)
+      window.location.href = '/home/express_advisement/0'
+    else
+      window.location.href = '/home/advisement'
+  }
+</script>
+<script>
+  {%if majors%}
+  $('#major').typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 1, 
+    autoSelect: true,
+    local: {{majors}}
+  });
+  $('.tt-query').css('background-color','#fff');
+  {%endif%}
+</script>
+
+{% endblock %}

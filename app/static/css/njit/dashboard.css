@@ -1,0 +1,172 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+      font-family: 'Raleway', sans-serif;
+
+    font-weight: 400;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.nypl-app-dir-btn-width{
+	width:25%;
+}
+
+.nypl-div-seperator{
+	border-top: #DEEEED solid 1px;
+	padding-top:7px;
+}
+
+.nypl_tab_info{
+	margin: 1em 0px;
+}
+
+.nypl_app_title{
+	margin-bottom: 1em;
+}
+
+.nypl-table-nonfluid {
+   width: auto;
+}
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.navbar-brand img{
+float:left;
+margin-top:-5px;
+margin-right:7px;
+vertical-align:middle;
+}
+
+
+
+
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+  
+  #myModal .modal-dialog  {width:850px;
+    }
+}
+
+
+/* CAP Tutorial Carousel */
+#cap-tutorial .carousel .container {
+  background-color: red;
+}
+
+#cap-tutorial .carousel-control {
+  background-color: transparent;
+  
+}
+
+#cap-tutorial .carousel .item {
+  background-color: orange;
+  height: 100%;
+  margin-top:0px;
+}
+
+#cap-tutorial .carousel-inner {
+  /*background-color: purple;*/
+  height:450px;
+  background: blue url("/static/images/cap_tour/blue_background_2.jpg") no-repeat center center;
+  color:white;
+  
+}
+
+#cap-tutorial .carousel-inner .item {
+	margin: 50px 100px;
+  
+}
+
+
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+  color:#000;
+
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color:#000;
+}
+.nav-sidebar > .active > a {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}

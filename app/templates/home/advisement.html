@@ -1,0 +1,60 @@
+<!--
+Name: Jeury Mejia
+Class: CS370
+Date: 13/12/216
+Template: home/advisement.html
+-->
+
+{% import "scaffolding/macros.html" as scaffold with context %}
+{% extends "layouts/default.html" %}
+{% block layout_content %}
+
+<!--BEGIN: Render error messages-->
+{% if error_messages %}
+<div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert">&times;</a>
+  <ul>
+    {% for message_item in error_messages%}
+    <li><strong>{{message_item}}</strong></li>
+    {% endfor %}
+  </ul>
+
+</div>
+{% endif %} 
+<!--END: Render error messages-->
+
+<h1 class="nypl_app_title">NJIT Advising System</h1>
+
+ <!-- BEGIN: Render Confirmation Messages. -->
+          {% if this.flash_messages %}
+          {% for flash in this.flash_messages() %}
+          
+          <div class="alert alert-{{flash[1]}}">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h3><strong>{{flash[0]}}</strong></h3>
+          </div>
+          {% endfor %}
+          {% endif %}          
+<!-- END: Render Confirmation Messages. -->
+
+
+
+<h3><strong>My Advisement</strong></h3>
+<div class="row">
+  <div class="col-md-6">
+  <div class="jumbotron">
+    <h1>Express Advisement</h1>
+    <p>Get advised in just a few clicks.</p>
+    <p><a class="btn btn-primary btn-lg" href="/home/express_advisement/0" role="button">Go Express!</a></p>
+  </div>
+  </div>
+  <div class="col-md-6">
+    <div class="jumbotron">
+    <h1>Advance Advisement</h1>
+    <p>Doing all the thinking for you.</p>
+    <p><a class="btn btn-success btn-lg"  href="/home/advance_advisement" role="button">Go Advance!</a></p>
+  </div>
+  </div>
+</div>
+
+{% endblock %}

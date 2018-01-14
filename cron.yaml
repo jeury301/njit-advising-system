@@ -1,0 +1,14 @@
+cron:
+
+- url: /cron/majors/update_majors
+  description: Monthly rebuild of Majors
+  schedule: 1st saturday of month 07:00
+  timezone: America/New_York
+ 
+ 
+  
+
+  
+ 
+  
+  

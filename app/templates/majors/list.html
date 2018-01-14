@@ -1,0 +1,43 @@
+<!--
+Name: Jeury Mejia
+Class: CS370
+Date: 13/12/216
+Template: majors/list.html
+-->
+
+{% import "scaffolding/macros.html" as scaffold with context %}
+{% extends "layouts/default.html" %}
+{% block layout_content %}
+
+<h1 class="nypl_app_title">NJIT Advising System</h1>
+<h3><strong>NJIT Majors</strong></h3>
+<div class="table-responsive">
+  <table id="majors_listing" class="table table-striped" >
+   <thead>
+   <tr>
+
+    <th>Discipline</th>
+    <th>Parsed</th>
+    <th>College</th>
+    <th>Department</th>
+    <th>View Description</th>
+    <th>View Portal</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  {%for major in majors %}
+  <tr>
+    <td>{{major.discipline}}</td>
+    <td>{{major.parsed}}</td>
+    <td >{{major.college}}</td>
+    <td>{{major.department}}</td>
+    <td class="text-center"><button type="button" class="btn btn-primary {%if major.parsed == false%}disabled{%endif%}" OnClick="window.location.href='/majors/view_major/{{major.key.urlsafe()}}'">Description</button></td>
+    <td class="text-center"><button type="button" class="btn btn-success" OnClick="window.location.href='{{major.link}}'">Portal</button></td>
+  </tr>
+  {%endfor%}
+</tbody>
+</table>
+</div>
+
+{% endblock %}
