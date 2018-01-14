@@ -10,7 +10,7 @@ CS370 Intro to AI Final Project - An smart system that allows students to get ad
 	*	Ferris is web dev framework tailored specifically to GAE. More info: http://ferris-framework.appspot.com/docs/index.html
 
 *	Python Libraries:
-	* 	BeautiflSoup, used to scrape and parse some of NJIT websites to build up the database of majors and to perform the "Smart" advising.
+	* 	BeautifulSoup, used to scrape and parse some of NJIT websites to build up the database of majors and to perform the "Smart" advising.
 
 # The System:
 
