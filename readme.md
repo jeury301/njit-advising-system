@@ -18,3 +18,6 @@ The system is basically a database of all the courses of each major at NJIT, tha
 
 # Check it out
 http://njit-advising.appspot.com/home
+
+You will be prompted to login with your gmail account. If this becomes an issue for you, please let me know.
+:-)
