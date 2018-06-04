@@ -21,3 +21,7 @@ http://njit-advising.appspot.com/home
 
 You will be prompted to login with your gmail account. If this becomes an issue for you, please let me know.
 :-)
+
+# njit-advising-system Video - Click below
+
+[![njit-advising alpha](https://media.giphy.com/media/1lvnUbdM5p49ma1URU/giphy.gif)](https://youtu.be/c6vjW5ljTJE)
